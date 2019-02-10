@@ -2,7 +2,7 @@ import argparse
 from datetime import datetime
 import logging
 import numpy as np
-
+import random
 import experiments
 from data import loader
 
@@ -39,22 +39,27 @@ if __name__ == '__main__':
 
     seed = args.seed
     if seed is None:
-        seed = np.random.randint(0, (2 ** 32) - 1)
+        seed = np.int64(random.randint(0, (2 ** 32) - 1))
         print("Using seed {}".format(seed))
 
     print("Loading data")
     print("----------")
 
     ds1_details = {
-            'data': loader.CreditDefaultData(verbose=verbose, seed=seed),
-            'name': 'credit_default',
-            'readable_name': 'Credit Default',
+            'data': loader.SpamData(verbose=verbose, seed=seed),
+            'name': 'spam_identification',
+            'readable_name': 'Spam Identification',
         }
     ds2_details = {
-            'data': loader.PenDigitData(verbose=verbose, seed=seed),
-            'name': 'pen_digits',
-            'readable_name': 'Handwritten Digits',
+            'data': loader.CreditDefaultData(verbose=verbose, seed=seed),
+            'name': 'Credit_Default',
+            'readable_name': 'Credit_Default',
         }
+    ds3_details = {
+        'data': loader.CreditApprovalData(verbose=verbose, seed=seed),
+        'name': 'Credit_Approval',
+        'readable_name': 'Credit_Approval',
+    }
 
     if verbose:
         print("----------")
@@ -62,9 +67,13 @@ if __name__ == '__main__':
 
     timings = {}
 
+    # datasets = [
+    #     ds1_details,
+    #     ds2_details
+    # ]
+
     datasets = [
-        ds1_details,
-        ds2_details
+        ds3_details
     ]
 
     experiment_details = []
@@ -78,6 +87,7 @@ if __name__ == '__main__':
             threads=threads,
             seed=seed
         ))
+    args.all = True
 
     if args.ann or args.all:
         run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
