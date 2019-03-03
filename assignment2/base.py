@@ -9,9 +9,8 @@ from java.lang import Math
 __all__ = ['DS_NAME', 'TEST_DATA_FILE', 'TRAIN_DATA_FILE', 'VALIDATE_DATA_FILE', 'OUTPUT_DIRECTORY',
            'initialize_instances', 'error_on_data_set', 'train']
 
-#DS_NAME = 'SpamData'
-
-DS_NAME = 'CreditApprovalData'
+DS_NAME = 'SpamData'
+#DS_NAME = 'CreditApprovalData'
 
 TEST_DATA_FILE = '../data/{}_test.csv'.format(DS_NAME)
 TRAIN_DATA_FILE = '../data/{}_train.csv'.format(DS_NAME)

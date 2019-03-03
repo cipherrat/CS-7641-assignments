@@ -13,9 +13,9 @@ from func.nn.activation import RELU
 from base import *
 
 # Network parameters found "optimal" in Assignment 1
-INPUT_LAYER = 15
-HIDDEN_LAYER1 = 244
-HIDDEN_LAYER2 = 244
+INPUT_LAYER = 57
+HIDDEN_LAYER1 = 57
+HIDDEN_LAYER2 = 57
 OUTPUT_LAYER = 1
 TRAINING_ITERATIONS = 3000
 OUTFILE = OUTPUT_DIRECTORY + '/NN_OUTPUT/NN_{}_LOG.csv'
