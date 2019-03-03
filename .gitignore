@@ -1,2 +1,4 @@
 *.pyc
 __pycache__
+assignment1/output/
+assignment2/output/

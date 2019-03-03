@@ -6,7 +6,7 @@ import learners
 class KNNLearner(learners.BaseLearner):
     def __init__(self,
                  verbose=False,
-                 n_neighbors=5,
+                 n_neighbors=50,
                  weights='uniform',
                  algorithm='auto',
                  leaf_size=30,

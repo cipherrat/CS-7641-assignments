@@ -7,9 +7,9 @@ import learners
 
 class DTLearner(learners.BaseLearner):
     def __init__(self,
-                 criterion="gini",
+                 criterion="entropy",
                  splitter="best",
-                 max_depth=None,
+                 max_depth=30,
                  min_samples_split=2,
                  min_samples_leaf=1,
                  min_weight_fraction_leaf=0.,

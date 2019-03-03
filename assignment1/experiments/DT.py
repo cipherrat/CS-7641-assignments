@@ -24,7 +24,7 @@ class DTExperiment(experiments.BaseExperiment):
         # best_params = {'criterion': 'entropy', 'max_depth': 23, 'class_weight': 'balanced'}
         #
         # Dataset 2:
-        # best_params = {'criterion': 'entropy', 'max_depth': 4, 'class_weight': 'balanced'}
+        best_params = {'criterion': 'entropy', 'max_depth': 30, 'class_weight': 'balanced'}
 
         learner = learners.DTLearner(random_state=self._details.seed)
         if best_params is not None:

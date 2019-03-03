@@ -89,19 +89,19 @@ if __name__ == '__main__':
         ))
     args.all = True
 
-    if args.ann or args.all:
-        run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
+    # if args.ann or args.all:
+    #     run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
 
-    if args.boosting or args.all:
-        run_experiment(experiment_details, experiments.BoostingExperiment, 'Boosting', verbose, timings)
+    # if args.boosting or args.all:
+    #     run_experiment(experiment_details, experiments.BoostingExperiment, 'Boosting', verbose, timings)
 
-    if args.dt or args.all:
-        run_experiment(experiment_details, experiments.DTExperiment, 'DT', verbose, timings)
+    # if args.dt or args.all:
+    #     run_experiment(experiment_details, experiments.DTExperiment, 'DT', verbose, timings)
 
     if args.knn or args.all:
         run_experiment(experiment_details, experiments.KNNExperiment, 'KNN', verbose, timings)
-
-    if args.svm or args.all:
-        run_experiment(experiment_details, experiments.SVMExperiment, 'SVM', verbose, timings)
+    #
+    # if args.svm or args.all:
+    #     run_experiment(experiment_details, experiments.SVMExperiment, 'SVM', verbose, timings)
 
     print(timings)
