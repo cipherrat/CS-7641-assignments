@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     seed = args.seed
     if seed is None:
-        seed = np.random.randint(0, (2 ** 32) - 1)
+        seed = np.random.randint(0, (2 ** 31) - 1)
         logger.info("Using seed {}".format(seed))
         np.random.seed(seed)
         rand.seed(seed)
@@ -57,19 +57,19 @@ if __name__ == '__main__':
         # },
         {
             'data': loader.CreditApprovalData(verbose=verbose, seed=seed),
-            'name': 'credit_approval',
+            'name': 'Credit_Approval',
             'readable_name': 'Credit Approval',
         },
-        {
-            'data': loader.PenDigitData(verbose=verbose, seed=seed),
-            'name': 'pen_digits',
-            'readable_name': 'Handwritten Digits',
-        }
         # {
-        #     'data': loader.SpamData(verbose=verbose, seed=seed),
-        #     'name': 'spam',
-        #     'readable_name': 'Spam',
+        #     'data': loader.PenDigitData(verbose=verbose, seed=seed),
+        #     'name': 'pen_digits',
+        #     'readable_name': 'Handwritten Digits',
         # },
+        {
+            'data': loader.SpamData(verbose=verbose, seed=seed),
+            'name': 'spam',
+            'readable_name': 'Spam',
+        },
         # {
         #     'data': loader.CreditDefaultData(verbose=verbose, seed=seed),
         #     'name': 'credit_default',

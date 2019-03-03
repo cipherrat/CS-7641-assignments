@@ -156,9 +156,9 @@ class DataLoader(ABC):
         trg = pd.concat([pd.DataFrame(train_x), train_y], axis=1)
         val = pd.concat([pd.DataFrame(validate_x), validate_y], axis=1)
 
-        tst.to_csv('data/{}_test.csv'.format(self.data_name()), index=False, header=False)
-        trg.to_csv('data/{}_train.csv'.format(self.data_name()), index=False, header=False)
-        val.to_csv('data/{}_validate.csv'.format(self.data_name()), index=False, header=False)
+        tst.to_csv('../data/{}_test.csv'.format(self.data_name()), index=False, header=False)
+        trg.to_csv('../data/{}_train.csv'.format(self.data_name()), index=False, header=False)
+        val.to_csv('../data/{}_validate.csv'.format(self.data_name()), index=False, header=False)
 
     @abstractmethod
     def _load_data(self):
@@ -296,8 +296,8 @@ if __name__ == '__main__':
     cd_data = CreditDefaultData(verbose=True)
     cd_data.load_and_process()
 
-    ca_data = SpamData(verbose=True)
-    ca_data.load_and_process()
+    cs_data = SpamData(verbose=True)
+    cs_data.load_and_process()
 
     ca_data = CreditApprovalData(verbose=True)
     ca_data.load_and_process()

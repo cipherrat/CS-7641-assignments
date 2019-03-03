@@ -2,3 +2,9 @@
 __pycache__
 assignment1/output/
 assignment2/output/
+.idea/
+assignment2/ABAGAIL/.classpath
+assignment2/ABAGAIL/.project
+assignment2/ABAGAIL/manifest.mf
+assignment2/RemoteSystemsTempFiles/.project
+*.class
