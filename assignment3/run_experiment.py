@@ -86,21 +86,22 @@ if __name__ == '__main__':
     logger.info("Loading data")
     logger.info("----------")
 
-    datasets = []
     dataset1_details = {
-            'data': loader.StatlogVehicleData(verbose=verbose, seed=seed),
-            'name': 'statlog_vehicle',
-            'readable_name': 'Statlog Vehicle',
-            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [1.0],
-                               'NN__hidden_layer_sizes': [(36, 36)], 'NN__learning_rate_init': [0.016]}
+            'data': loader.CreditApprovalData(verbose=verbose, seed=seed),
+            'name': 'Credit_Approval',
+            'readable_name': 'Credit Approval',
+            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [10],
+                               'NN__hidden_layer_sizes': [(244, 244)], 'NN__learning_rate_init': [0.008]}
         }
     dataset2_details = {
-            'data': loader.HTRU2Data(verbose=verbose, seed=seed),
-            'name': 'htru2',
-            'readable_name': 'HTRU2',
-            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [1.0],
-                               'NN__hidden_layer_sizes': [(36, 36)], 'NN__learning_rate_init': [0.016]}
+            'data': loader.SpamData(verbose=verbose, seed=seed),
+            'name': 'Spam_Classification',
+            'readable_name': 'Spam Classification',
+            'best_nn_params': {'NN__activation': ['relu'], 'NN__alpha': [0.0001],
+                               'NN__hidden_layer_sizes': [(57, 57)], 'NN__learning_rate_init': [0.008]}
     }
+
+    datasets = []
     if args.dataset1:
         datasets.append(dataset1_details)
     elif args.dataset2:
@@ -138,6 +139,12 @@ if __name__ == '__main__':
         if args.pca or args.all:
             run_experiment(experiment_details, experiments.PCAExperiment, 'PCA', args.dim, args.skiprerun,
                            verbose, timings)
+        if args.rf or args.all:
+            run_experiment(experiment_details, experiments.RFExperiment, 'RF', args.dim, args.skiprerun,
+                           verbose, timings)
+        if args.rp or args.all:
+            run_experiment(experiment_details, experiments.RPExperiment, 'RP', args.dim, args.skiprerun,
+                           verbose, timings)
         # NOTE: These were experimented with but ultimately were not used for this assignment.
         # if args.lda or args.all:
         #     run_experiment(experiment_details, experiments.LDAExperiment, 'LDA', args.dim, args.skiprerun,
@@ -145,12 +152,6 @@ if __name__ == '__main__':
         # if args.svd or args.all:
         #     run_experiment(experiment_details, experiments.SVDExperiment, 'SVD', args.dim, args.skiprerun,
         #                    verbose, timings)
-        if args.rf or args.all:
-            run_experiment(experiment_details, experiments.RFExperiment, 'RF', args.dim, args.skiprerun,
-                           verbose, timings)
-        if args.rp or args.all:
-            run_experiment(experiment_details, experiments.RPExperiment, 'RP', args.dim, args.skiprerun,
-                           verbose, timings)
 
         logger.info("Timings: {}".format(timings))
 
