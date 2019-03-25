@@ -112,7 +112,7 @@ algos = {
 
 WATERMARK = False
 GATECH_USERNAME = 'DO NOT STEAL'
-TERM = 'Fall 2018'
+TERM = 'Spring 2019'
 
 
 def watermark(p):
@@ -122,7 +122,7 @@ def watermark(p):
     ax = plt.gca()
     for i in range(1, 11):
         p.text(0.95, 0.95 - (i * (1.0/10)), '{} {}'.format(GATECH_USERNAME, TERM), transform=ax.transAxes,
-               fontsize=32, color='gray',
+               fontsize=32, color='yellow',
                ha='right', va='bottom', alpha=0.2)
     return p
 
@@ -324,10 +324,10 @@ def plot_combined(title, df, data_columns, tsne_data=None, extra_data=None, extr
 
     if extra_data is not None and extra_data_name is not None:
         ex_ax = ax1.twinx()
-        ex_ax.plot(extra_data.index.values, extra_data.iloc[:, 0], linewidth=1,
-                   label=extra_data_name)
+        ex_ax.plot(extra_data.index.values, extra_data.iloc[:, 0], linewidth=1, color='r', label=extra_data_name)
         ex_ax.set_ylabel(extra_data_name)
         ex_ax.tick_params('y')
+        ax1.plot(0, 0, '-r', label=extra_data_name)
 
     ax1.legend(loc="best")
     ax1.grid()

@@ -8,3 +8,6 @@ assignment2/ABAGAIL/.project
 assignment2/ABAGAIL/manifest.mf
 assignment2/RemoteSystemsTempFiles/.project
 *.class
+/assignment3/output_1_2/*
+/assignment3/output_3/*
+/assignment3/output_creditcard/*
