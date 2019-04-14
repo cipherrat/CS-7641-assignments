@@ -44,9 +44,9 @@ TO_PROCESS = {
 
 the_best = {}
 
-WATERMARK = False
-GATECH_USERNAME = 'DO NOT STEAL'
-TERM = 'Fall 2018'
+WATERMARK = True
+GATECH_USERNAME = 'rkr30'
+TERM = 'Spring 2019'
 
 
 def watermark(p):
@@ -56,7 +56,7 @@ def watermark(p):
     ax = plt.gca()
     for i in range(1, 11):
         p.text(0.95, 0.95 - (i * (1.0/10)), '{} {}'.format(GATECH_USERNAME, TERM), transform=ax.transAxes,
-               fontsize=32, color='gray',
+               fontsize=22, color='gray',
                ha='right', va='bottom', alpha=0.2)
     return p
 
